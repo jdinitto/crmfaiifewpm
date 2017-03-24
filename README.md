@@ -3,7 +3,9 @@
 
 I'm adding this particular repo as a compliment to the original, after a discussion with @pkrall520 about protecting the methods from being overwritten. Now the methods are properly scoped and privatized.
 
-Here's the changed IIFE expression. Notice that what's returned is a new function object, with protected classes that reference the private `_self` methods. The returned methods can be overwritten, but `ding`'s classes are protected:
+Below is the modified IIFE expression. Notice that what's returned is a new function object, with protected classes that reference the private `_self` methods. The returned methods can be overwritten, but `ding`'s classes are protected.
+
+As with the original, the `this.ponk` class is the ideal way of returning a usable method, since it is available right at the `window.onload` event onward.
 
 ```
 var ding = (function() {
