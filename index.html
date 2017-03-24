@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+var ding = (function() {
+    var tink = 5,
+        woof = function() {
+            return tink * 5;
+        },
+        zonk = function(){
+            six.innerHTML += ' ' + woof();
+        },
+        mank = function(id){
+            if(id){document.getElementById(id).innerHTML += ' ' + woof(); return false;}
+            nine.innerHTML += ' ' + woof();
+        },
+        ponk = function(butt){
+            if (butt){return tink * 7}
+            return tink * 6;
+        }
+    return {
+        woof: function() {woof()},
+        zonk: function() {zonk()},
+        mank: function(id) {mank(id)},
+        ponk: function(butt) {return ponk(butt)}
+    }
+})();
+function pank(){four.innerHTML = ding.woof()} //undefined
+function zank(){ding.zonk()} //works!
+window.onload = function() {
+    var butty = document.getElementById('butty'),
+        one = document.getElementById('one'),
+        two = document.getElementById('two'),
+        three = document.getElementById('three'),
+        four = document.getElementById('four'),
+        five = document.getElementById('five'),
+        six = document.getElementById('six'),
+        seven = document.getElementById('seven'),
+        eight = document.getElementById('eight'),
+        nine = document.getElementById('nine'),
+        ten = document.getElementById('ten'),
+        eleven = document.getElementById('eleven'),
+        twelve = document.getElementById('twelve');
+    one.innerHTML = ding.woof(); //undefined
+    butty.onclick = function() {
+        
+        //all of these are undefined
+        two.innerHTML = ding.woof(); 
+        pank(); 
+        eight.innerHTML = ding.zonk();
+        var fink = ding.woof(); three.innerHTML = fink; 
+        //these work!
+        zank();
+        twelve.innerHTML += ' ' + ding.ponk(true);
+    }
+    //undefined
+    five.innerHTML = ding.zonk();
+    seven.innerHTML = zank();
+    
+    //these work!
+    ding.mank();
+    zank();
+    ding.mank('ten'); //trying with parameter
+    eleven.innerHTML = ding.ponk();
+}
+</script>
+</head>
+<body>
+    <input id="butty" type="button" value="hit me pls" />
+    <p>One: <span id="one"</p>
+    <p>Two: <span id="two"></span></p>
+    <p>Three: <span id="three"></span></p>
+    <p>Four: <span id="four"></span></p>
+    <p>Five: <span id="five"></span></p>
+    <p>Six: <span id="six"></span></p>
+    <p>Seven: <span id="seven"></span></p>
+    <p>Eight: <span id="eight"></span></p>
+    <p>Nine: <span id="nine"></span></p>
+    <p>Ten: <span id="ten"></span></p>
+    <p>Eleven: <span id="eleven"></span></p>
+    <p>Twelve: <span id="twelve"></span></p>
+</body>
+</html>
