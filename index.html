@@ -4,27 +4,29 @@
 <script>
 var ding = (function() {
     var tink = 5,
-        woof = function() {
+        _self = this;
+        _self.woof = function() {
             return tink * 5;
-        },
-        zonk = function(){
+        };
+        _self.zonk = function(){
             six.innerHTML += ' ' + woof();
-        },
-        mank = function(id){
+        };
+        _self.mank = function(id){
             if(id){document.getElementById(id).innerHTML += ' ' + woof(); return false;}
             nine.innerHTML += ' ' + woof();
-        },
-        ponk = function(butt){
+        };
+        _self.ponk = function(butt){
             if (butt){return tink * 7}
             return tink * 6;
-        }
-    return {
-        woof: function() {woof()},
-        zonk: function() {zonk()},
-        mank: function(id) {mank(id)},
-        ponk: function(butt) {return ponk(butt)}
+        };
+    return new function() {
+        this.woof = function() {_self.woof()};
+        this.zonk = function() {_self.zonk()};
+        this.mank = function(id) {_self.mank(id)};
+        this.ponk = function(butt) {return _self.ponk(butt)};
     }
 })();
+
 function pank(){four.innerHTML = ding.woof()} //undefined
 function zank(){ding.zonk()} //works!
 window.onload = function() {
@@ -79,5 +81,6 @@ window.onload = function() {
     <p>Ten: <span id="ten"></span></p>
     <p>Eleven: <span id="eleven"></span></p>
     <p>Twelve: <span id="twelve"></span></p>
+
 </body>
 </html>
