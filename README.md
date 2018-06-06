@@ -7,6 +7,8 @@ Below is the modified IIFE expression. Notice that what's returned is a new func
 
 As with the original, the `this.ponk` class is the ideal way of returning a usable method, since it is available right at the `window.onload` event onward.
 
+[View in action here](https://jdinitto.github.io/crmfaiifewpm/).
+
 ```
 var ding = (function() {
     var tink = 5,
